@@ -1,0 +1,96 @@
+{% include 'parentheader.html' %}
+
+	<form method="post">
+		<h2 align="center"><font color="white"><u>CHILD REGISTRATION</u></font></h2>
+		{% if data['updatepart'] %}
+		<table class="table" style="width: 700px" align="center" >
+			<tr>
+				<th><font color="black">First name</font></th>
+				<td><input type="text" name="fname" value="{{data['updatepart'][0]['first_name']}}"  pattern="[a-zA-Z\s]{0,10}" title="enter a valid name" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Last name</font></th>
+				<td><input type="text" name="lname" value="{{data['updatepart'][0]['last_name']}}"  pattern="[a-zA-Z\s]{0,10}" title="enter a valid name" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Phone:no</font></th>
+				<td><input type="text" name="phn" value="{{data['updatepart'][0]['phn']}}" pattern="[0-9]{10}" required="" title="enter a valid 10 digit mobile number" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">IMEI number</font></th>
+				<td><input type="text" name="imei_no" value="{{data['updatepart'][0]['imei_no']}}" pattern="[0-9]{0,18}" required="" title="enter a valid 10 digit mobile number" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Email</font></th>
+				<td><input type="email" name="email" value="{{data['updatepart'][0]['email']}}" required="" class="form-control"></td>
+			</tr>
+			
+			 <tr>
+	    	<td align="center" colspan="2">
+	    	<input type="submit" name="update" value="update" class="btn btn-primary btn-lg"></td>
+	    </tr>
+
+		</table>
+		{% else %}
+		<table  class="table" style="width: 700px" align="center" >
+			<tr>
+				<th><font color="black">First name</font></th>
+				<td><input type="text" name="fname" placeholder="firstname" pattern="[a-zA-Z\s]{0,10}" title="enter a valid name" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Last name</font></th>
+				<td><input type="text" name="lname" placeholder="lastname" pattern="[a-zA-Z\s]{0,10}" title="enter a valid name" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Phone:no</font></th>
+				<td><input type="text" name="phn" placeholder="phone"  pattern="[0-9]{10}" required="" title="enter a valid 10 digit mobile number" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">IMEI number</font></th>
+				<td><input type="text" name="imei_no" placeholder="imei no" pattern="[0-9]{0,18}" required="" title="enter a valid 10 digit mobile number" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Email</font></th>
+				<td><input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="" placeholder="email" class="form-control"></td>
+			</tr>
+			
+			 <tr>
+	    	<td align="center" colspan="2">
+	    	<input type="submit" name="submit" value="submit" class="btn btn-primary btn-lg"></td>
+	    </tr>
+
+		</table>
+	
+{% endif %}
+	<table style="width: 1000px" align="center" class="table">
+		<tr>
+			<th><font color="black">Admin Name</font></th>
+			<th><font color="black">First name</font></th>
+			<th><font color="black">Last name</font></th>
+			<th><font color="black">Phone:no</font></th>	
+			<th><font color="black">IMEI:no</font></th>
+			<th><font color="black">Email</font></th>
+
+		</tr>
+		<tbody>
+
+		{% for row in data['view'] %}
+		<tr>
+				<td><font color="black">{{row['NAME']}}</font></td>
+				<td><font color="black">{{row['fname']}}</font></td>
+				<td><font color="black">{{row['lname']}}</font></td>
+				<td><font color="black">{{row['phn']}}</font></td>
+				<td><font color="black">{{row['imei_no']}}</font></td>
+				<td><font color="black">{{row['email']}}</font></td>
+				
+				<td><a class="btn btn-primary readmore"  href="?action=delete&id={{row['child_id']}}">Delete</a></td>
+				<td><a class="btn btn-primary readmore"  href="?action=update&id={{row['child_id']}}">Update</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		 
+	</table>
+</form>
+</div>
+<br>
+{% include 'footer.html' %}

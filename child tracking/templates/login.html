@@ -1,0 +1,34 @@
+{% include 'publicheader.html' %}
+<style>
+	.bgimages{
+		background-image: url('/static/images/slider/2.jpg');
+	}
+</style>
+<center>
+<div class="bgimages" style="height:500px" >
+	
+<!-- width:700px; -->
+<br><br><br>
+	<form method="post">
+		<h2 align="center"><u>LOGIN</u></h2>
+		<table  >
+			<tr>
+				<th><font color="black">user name</font></th>
+				<td><input type="text" name="username" required="" class="form-control" placeholder="username"></td>
+			</tr>
+
+			<tr>
+				<th><font color="black">password</font></th>
+				<td><input type="password" name="password" required="" class="form-control" placeholder="password"></td>
+			</tr>
+			 <tr>
+	    	<td align="center" colspan="2">
+	    	<input type="submit" name="submit" value="LOGIN" class="btn btn-primary btn-lg" ></td>
+	    </tr>
+	    <br>
+		</table>
+	</form>
+	</center>
+	</div>
+	<br>
+{% include 'footer.html' %}

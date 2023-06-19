@@ -1,0 +1,41 @@
+{% include 'parentheader.html' %}
+<br>
+
+<br><br>
+<form method="post">
+<table  style="width: 200px" align="center" class="table">
+	<tr >
+		<td><font color="black">Child</font></td>
+		<td><font color="black"><select name="childs">
+			<option selected>Select</option>
+			{% for row in data['childdetails'] %}
+				<option value="{{ row['child_id'] }}">{{ row['name'] }}</option>
+			{% endfor %}
+		</select></font></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><input type="submit" class="btn btn-primary btn-lg" name="submit"></td>
+		
+	</tr>
+	<br>
+	<h2 align="center"><u>View app details</u></h2>
+	<table  style="width: 400px" align="center" class="table">
+		
+		<tr>
+			<th><font color="black">Child Name</font></th>
+			<th><font color="black">App </font></th>
+		</tr>
+		<tbody>
+		{% for row in data['app'] %}
+			<tr>
+				<td><font color="black">{{row['name']}}</font></td>
+				<td><font color="black">{{row['app_dtls']}}</font></td>
+				</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</table>
+</form>
+
+<br><br>
+{% include 'footer.html' %}

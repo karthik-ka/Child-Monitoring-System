@@ -1,0 +1,62 @@
+{% include 'publicheader.html' %}
+
+<style>
+	.bgimages{
+		background-image: url('/static/images/slider/3.jpg');
+	}
+</style>
+<center>
+<div class="bgimages" style="height:500px" >
+
+	<form method="post">
+		<h2 align="center"><u>Admin REGISTRATION</u></h2>
+		<table class="table" style="width: 700px" align="center" >
+			<tr>
+				<th><font color="black" >First name</font></th>
+				<td><input type="text" name="fname" pattern="[a-zA-Z\s]{0,10}" title="enter a valid name" required="" placeholder="First Name" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Last name</font></th>
+				<td><input type="text" name="lname"pattern="[a-zA-Z\s]{0,10}" title="enter a valid name" required="" placeholder="Last Name" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Phone:no</font></th>
+				<td><input type="text" name="phn" pattern="[0-9]{10}" required="" title="enter a valid 10 digit mobile number" placeholder="phn" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Email</font></th>
+				<td><input type="email" name="email" required="" placeholder="Email" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">Number of Employee</font></th>
+				<td><input type="text" name="children_no" pattern="[0-9]{0,10}" required="" placeholder="no of children" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">House name</font></th>
+				<td><input type="text" name="hname" required="" placeholder="House Name" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">place</font></th>
+				<td><input type="text" name="place" required="" placeholder="Place" class="form-control"</td>
+			</tr>
+			<tr>
+				<th><font color="black">user name</font></th>
+				<td><input type="text" name="username" required=""placeholder="User Name" class="form-control"></td>
+			</tr>
+			<tr>
+				<th><font color="black">password</font></th>
+				<td><input type="password" name="password" required="" placeholder="password" class="form-control"></td>
+			</tr>
+			 <tr>
+	    	<td align="center" colspan="2">
+	    	<input type="submit" name="submit" value="submit" class="btn btn-primary btn-lg"></td>
+	    </tr>
+
+		</table>
+	</form>
+	<br>
+	</div>
+</center>
+		
+
+{% include 'footer.html' %}

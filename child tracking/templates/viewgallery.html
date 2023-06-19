@@ -1,0 +1,46 @@
+{% include 'parentheader.html' %}
+<br>
+
+<br><br>
+<h2 align="center"><u>View gallery</u></h2>
+<form method="post">
+<table style="width: 200px" align="center" class="table">
+	<tr>
+		<td><font color="black">Child</font></td>
+		<td><font color="black"><select name="childs">
+			<option selected>Select</option>
+			{% for row in data['childdetails'] %}
+				<option value="{{ row['child_id'] }}">{{ row['name'] }}</option>
+			{% endfor %}
+		</select></font></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><input type="submit" name="submit" class="btn btn-primary btn-lg"></td>
+		
+	</tr>
+</table>
+</form>
+	<table style="width: 400px" align="center" class="table">
+		<
+		<tr>
+			<th><font color="black">Child Name</font></th>
+			<th><font color="black">Image</font></th>
+		</tr>
+		<tbody>
+		{% for row in data['img'] %}
+			<tr>
+				<td><font color="black">{{row['img_id']}}</font></td>
+				<td><font color="black">{{row['name']}}</font></td>
+				<td><font color="black">{{row['img']}}</font></td>
+				<!-- <td><a download="/{{row['img']}}" href="/{{row['img']}}">Download</a></td> -->
+				<td><a href="?id={{row['child_id']}}&&ids={{row['img_id']}}">Download</a></td>
+<!-- 
+				<td><a href="?action=delete&id={{row['child_id']}}&&ids={{row['img_id']}}">Clear</a></td> -->
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+
+<br><br>
+{% include 'footer.html' %}

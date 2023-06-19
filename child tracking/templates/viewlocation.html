@@ -1,0 +1,46 @@
+{% include 'parentheader.html' %}
+<br>
+
+		<br><br>
+<h2 align="center"><u>View location</u></h2>
+<form method="post">
+<table style="width: 200px" align="center" class="table">
+	<tr>
+		<td><font color="black">Child</font></td>
+		<td><font color="black"><select name="childs">
+			<option selected>Select</option>
+			{% for row in data['childdetails'] %}
+				<option value="{{ row['child_id'] }}">{{ row['name'] }}</option>
+			{% endfor %}
+		</select></font></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><input type="submit"  class="btn btn-primary btn-lg" name="submit"></td>
+		
+	</tr>
+	<table style="width: 1000px" align="center" class="table">
+		<tr>
+			<th><font color="black">Child Name</font></th>
+			<th><font color="black">Longitude</font></th>
+			<th><font color="black">Lattitude</font></th>
+			<th><font color="black">Date</font></th>
+			<th><font color="black">Time</font></th>
+		</tr>
+		<tbody>
+		{% for row in data['loc'] %}
+			<tr>
+				<td><font color="black">{{row['name']}}</font></td>
+				<td><font color="black">{{row['longitude']}}</font></td>
+				<td><font color="black">{{row['lattitude']}}</font></td>
+				<td><font color="black">{{row['date']}}</font></td>
+				<td><font color="black">{{row['time']}}</font></td>
+				<td><a  class="btn btn-primary btn-lg" href="https://maps.google.com?q={{row['lattitude']}},{{row['longitude']}}" target="_blank">View Location</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</table>
+</form>
+
+<br><br>
+{% include 'footer.html' %}
